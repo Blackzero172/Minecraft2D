@@ -29,6 +29,12 @@
 	width: 30%;
 	background: url("/assets/img/GrassBlock.jpg") no-repeat center center;
 }
+.landing-page p img {
+	width: 10%;
+}
+.landing-page p {
+	margin-top: 1rem;
+}
 .landing-page .start-btn {
 	animation: fadein 2s ease 1s 1 forwards;
 	opacity: 0;
@@ -56,18 +62,23 @@
 .toolbar {
 	display: flex;
 	flex-direction: column;
-	width: 9%;
+	align-items: center;
 }
 .toolbar button {
-	margin: 30px 0;
+	margin: 20px 0;
 	background: transparent;
 	border: 2px solid gray;
+}
+.toolbar .inventory {
+	width: 50px;
+	height: 50px;
 }
 .toolbar button:active {
 	background: #6f6f6f;
 }
 .toolbar .reset-btn {
 	height: 10vh;
+	width: 20vh;
 }
 #selected {
 	background: yellowgreen;
@@ -84,4 +95,16 @@
 }
 .grass {
 	background: url("/assets/img/grassTexture.png") no-repeat center center/cover;
+}
+.cobble {
+	background: url("/assets/img/cobbleTexture.png") no-repeat center center/cover;
+}
+.log {
+	background: url("/assets/img/logTexture.png") no-repeat center center/cover;
+}
+.leaves {
+	background: url("/assets/img/leavesTexture.jpg") no-repeat center center/cover;
+}
+.cloud {
+	background: white;
 }
