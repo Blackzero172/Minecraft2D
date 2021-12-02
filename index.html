@@ -8,18 +8,23 @@
 		<title>2D Minecraft</title>
 	</head>
 	<body ondragstart="return false">
+		<div class="landing-page">
+			<img src="/assets/img/Minecraft-Logo.png" alt="Minecraft Logo" class="logo" />
+			<button type="button" class="start-btn">Start</button>
+		</div>
 		<div class="flex-container">
 			<table class="world-container"></table>
 			<div class="toolbar">
-				<button type="button" data-tool="pickaxe">
+				<button type="button" data-tool="pickaxe" class="tool">
 					<img src="/assets/img/pickaxeTexture.png" alt="Pickaxe Image" />
 				</button>
-				<button type="button" data-tool="axe">
+				<button type="button" data-tool="axe" class="tool">
 					<img src="/assets/img/axeTexture.png" alt="Axe Image" />
 				</button>
-				<button type="button" data-tool="shovel">
+				<button type="button" data-tool="shovel" class="tool">
 					<img src="/assets/img/shovelTexture.png" alt="Shovel Image" />
 				</button>
+				<button type="button" class="reset-btn">Reset</button>
 			</div>
 		</div>
 
