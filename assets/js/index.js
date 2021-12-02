@@ -108,6 +108,7 @@ const placeBlock = (e) => {
 	const currBlock = inventory[inventory.length - 1];
 	if (currBlock) {
 		e.target.className = currBlock;
+		inventory.pop();
 	}
 };
 populateWorld();
