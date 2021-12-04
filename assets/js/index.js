@@ -134,7 +134,7 @@ toolButtons.forEach((tool) => {
 		toolButtons.forEach((tool) => {
 			tool.id = "";
 		});
-		if (!e.target.classList.contains("inventory")) tool.id = "selected";
+		tool.id = "selected";
 		selectedTool = tool.getAttribute("data-tool");
 	});
 });

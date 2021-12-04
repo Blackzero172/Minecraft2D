@@ -1,110 +1,110 @@
 @font-face {
-  font-family: "Minecraft";
-  src: url("/assets/fonts/Minecraft.ttf") format("truetype");
+	font-family: "Minecraft";
+	src: url("/assets/fonts/Minecraft.ttf") format("truetype");
 }
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Minecraft", sans-serif;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Minecraft", sans-serif;
 }
 .flex-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 }
 .landing-page {
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  z-index: 1;
-  background: white;
-  display: flex;
-  padding: 10%;
-  align-items: center;
-  flex-direction: column;
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	z-index: 1;
+	background: white;
+	display: flex;
+	padding: 10%;
+	align-items: center;
+	flex-direction: column;
 }
 .landing-page .logo {
-  width: 30%;
-  background: url("/assets/img/GrassBlock.jpg") no-repeat center center;
+	width: 30%;
+	background: url("/assets/img/GrassBlock.jpg") no-repeat center center;
 }
 .landing-page p img {
-  width: 10%;
+	width: 10%;
 }
 .landing-page p {
-  margin-top: 1rem;
+	margin-top: 1rem;
 }
 .landing-page .start-btn {
-  animation: fadein 2s ease 1s 1 forwards;
-  opacity: 0;
-  padding: 15px 30px;
-  margin-top: 1rem;
-  font-size: 1.5rem;
-  background: #6f6f6f;
-  border: 1px solid black;
-  color: #fff;
+	animation: fadein 2s ease 1s 1 forwards;
+	opacity: 0;
+	padding: 15px 30px;
+	margin-top: 1rem;
+	font-size: 1.5rem;
+	background: #6f6f6f;
+	border: 1px solid black;
+	color: #fff;
 }
 .landing-page .start-btn:active {
-  background: #555;
+	background: #555;
 }
 @keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 .world-container {
-  border-collapse: collapse;
+	border-collapse: collapse;
 }
 .toolbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 button {
-  margin: 20px 0;
-  background: transparent;
-  border: 2px solid gray;
+	margin: 20px 0;
+	background: transparent;
+	border: 2px solid gray;
 }
 .toolbar .inventory {
-  width: 50px;
-  height: 50px;
+	width: 50px;
+	height: 50px;
 }
 .toolbar button:active {
-  background: #6f6f6f;
+	background: #6f6f6f;
 }
 .toolbar .reset-btn {
-  height: 10vh;
-  width: 20vh;
+	height: 10vh;
+	width: 20vh;
 }
 #selected {
-  background: yellowgreen;
+	border: 2px solid darkcyan;
 }
 .world-container tr td {
-  width: 43px;
-  height: 43px;
+	width: 43px;
+	height: 43px;
 }
 .sky {
-  background: cornflowerblue;
+	background: cornflowerblue;
 }
 .dirt {
-  background: url("/assets/img/dirtTexture.jpg") no-repeat center center/cover;
+	background: url("/assets/img/dirtTexture.jpg") no-repeat center center/cover;
 }
 .grass {
-  background: url("/assets/img/grassTexture.png") no-repeat center center/cover;
+	background: url("/assets/img/grassTexture.png") no-repeat center center/cover;
 }
 .cobble {
-  background: url("/assets/img/cobbleTexture.png") no-repeat center center/cover;
+	background: url("/assets/img/cobbleTexture.png") no-repeat center center/cover;
 }
 .log {
-  background: url("/assets/img/logTexture.png") no-repeat center center/cover;
+	background: url("/assets/img/logTexture.png") no-repeat center center/cover;
 }
 .leaves {
-  background: url("/assets/img/leavesTexture.jpg") no-repeat center center/cover;
+	background: url("/assets/img/leavesTexture.jpg") no-repeat center center/cover;
 }
 .cloud {
-  background: white;
+	background: white;
 }
