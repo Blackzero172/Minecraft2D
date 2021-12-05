@@ -229,13 +229,13 @@ const placeBlock = (e) => {
 	if (
 		selectedBlock &&
 		selectedTool === "inventory" &&
-		e.target.className === "sky"
-		// inventory.includes(selectedBlock)
+		e.target.className === "sky" &&
+		inventory.includes(selectedBlock)
 	) {
 		e.target.className = selectedBlock;
 		e.target.addEventListener("click", mineBlock);
 		let counter = selectedButton.querySelector("h2");
-		// counter.innerText = +counter.innerText - 1;
+		counter.innerText = +counter.innerText - 1;
 		inventory.pop();
 	}
 };
@@ -249,8 +249,6 @@ toolButtons.forEach((tool) => {
 
 			tool.id = "selected";
 			selectedTool = tool.getAttribute("data-tool");
-		} else {
-			console.log("you need to unlock this tool");
 		}
 	});
 });
@@ -261,9 +259,7 @@ const ToggleCrafting = () => {
 const updateCounter = (blockType) => {
 	const parentButton = document.querySelector(`.inventory-container .${blockType}`);
 	const counter = parentButton.querySelector("h2");
-	console.log(blockType);
 	const amount = inventory.filter((block) => block === blockType);
-	console.log(amount);
 	counter.innerText = amount.length;
 };
 const updateToolBar = () => {
