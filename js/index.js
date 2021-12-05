@@ -42,6 +42,8 @@ const mineBlock = (e) => {
 const populateWorld = () => {
 	worldContainer.innerHTML = "";
 	landingPage.style.display = "none";
+	const inventoryBtn = document.querySelector(".inventory");
+	inventoryBtn.className = "inventory tool";
 	inventory = [];
 	for (let i = 1; i <= 21; i++) {
 		let tileRow = document.createElement("tr");
@@ -68,10 +70,16 @@ const populateWorld = () => {
 	changeTile("x:15 y:14", blocks.cobble);
 	changeTile("x:14 y:14", blocks.cobble);
 	// Log Creation
+	createTree();
+	// Cloud Creation
+	createCloud();
+};
+const createTree = () => {
+	// Log
 	changeTile("x:18 y:14", blocks.log);
 	changeTile("x:18 y:13", blocks.log);
 	changeTile("x:18 y:12", blocks.log);
-	// Leaves Creation
+	// Leaves
 	changeTile("x:17 y:11", blocks.leaves);
 	changeTile("x:18 y:11", blocks.leaves);
 	changeTile("x:19 y:11", blocks.leaves);
@@ -85,6 +93,8 @@ const populateWorld = () => {
 	changeTile("x:5 y:14", blocks.leaves);
 	changeTile("x:5 y:13", blocks.leaves);
 	changeTile("x:6 y:14", blocks.leaves);
+};
+const createCloud = () => {
 	changeTile("x:3 y:6", blocks.cloud);
 	changeTile("x:4 y:6", blocks.cloud);
 	changeTile("x:4 y:5", blocks.cloud);
@@ -94,7 +104,6 @@ const populateWorld = () => {
 	changeTile("x:6 y:5", blocks.cloud);
 	changeTile("x:7 y:6", blocks.cloud);
 };
-
 const changeTile = (tilePosition, tileType) => {
 	const tile = document.getElementById(tilePosition);
 	let requiredTool = "";
