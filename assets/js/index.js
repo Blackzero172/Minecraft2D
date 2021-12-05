@@ -36,6 +36,7 @@ const mineBlock = (e) => {
 
 		inventory.push(tile.className);
 		tile.className = blocks.sky;
+		tile.addEventListener("click", placeBlock);
 	}
 };
 const populateWorld = () => {
@@ -118,6 +119,7 @@ const placeBlock = (e) => {
 	const currBlock = inventory[inventory.length - 1];
 	const prevBlock = inventory[inventory.length - 2];
 	const inventoryBtn = document.querySelector(".inventory");
+	console.log(currBlock && selectedTool === "inventory" && e.target.className === "sky");
 	if (currBlock && selectedTool === "inventory" && e.target.className === "sky") {
 		e.target.className = currBlock;
 		e.target.addEventListener("click", mineBlock);
