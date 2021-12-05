@@ -33,22 +33,25 @@
 				<button type="button" class="diamond tool" data-tool="inventory"><h2 class="counter">0</h2></button>
 				<div class="crafting-container">
 					<button type="button" class="crafting"></button>
-					<div class="crafting-menu">
-						<div class="cost-container">
-							You need
-							<p>x3</p>
-							<img src="/assets/img/logTexture.png" alt="Upgrade Material" />
+					<div class="crafting-menu scale-zero">
+						<div class="upgrade-container">
+							<div class="cost-container">
+								You need
+								<p>x3</p>
+								<img src="/assets/img/logTexture.png" alt="Upgrade Material" />
+							</div>
+							<p>Are you sure you want to upgrade your gear?</p>
+							<div class="img-container">
+								<img src="/assets/img/woodenPickaxeTexture.png" alt="Shovel Image" />
+								<img src="/assets/img/woodenAxeTexture.png" alt="Shovel Image" />
+								<img src="/assets/img/woodenShovelTexture.png" alt="Shovel Image" />
+							</div>
+							<div class="button-container">
+								<div class="btn confirm">Yes I'm sure</div>
+								<div class="btn cancel">No I'm not</div>
+							</div>
 						</div>
-						<p>Are you sure you want to upgrade your gear?</p>
-						<div class="img-container">
-							<img src="/assets/img/woodenPickaxeTexture.png" alt="Shovel Image" />
-							<img src="/assets/img/woodenAxeTexture.png" alt="Shovel Image" />
-							<img src="/assets/img/woodenShovelTexture.png" alt="Shovel Image" />
-						</div>
-						<div class="button-container">
-							<div class="btn confirm">Yes I'm sure</div>
-							<div class="btn cancel">No I'm not</div>
-						</div>
+						<p class="max-upgrade display-none">Congratulations You have reached max upgrades!</p>
 					</div>
 				</div>
 			</div>

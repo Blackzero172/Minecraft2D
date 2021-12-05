@@ -141,6 +141,8 @@ const resetTier = () => {
 		tool.id = "selected";
 		selectedTool = tool.getAttribute("data-tool");
 	});
+	craftingTable.querySelector(".upgrade-container").classList.remove("display-none");
+	craftingTable.querySelector(".max-upgrade").classList.add("display-none");
 };
 const populateWorld = () => {
 	worldContainer.innerHTML = "";
@@ -164,7 +166,7 @@ const populateWorld = () => {
 				tile.classList.add(blocks.grass);
 				tile.addEventListener("click", mineBlock);
 			} else if (i > 12 && i < 15) {
-				let randomBlock = probability(0.5) ? blocks.cobble : blocks.dirt;
+				let randomBlock = probability(0.3) ? blocks.cobble : blocks.dirt;
 				tile.classList.add(blocks[randomBlock]);
 				tile.addEventListener("click", mineBlock);
 			} else {
@@ -254,7 +256,7 @@ toolButtons.forEach((tool) => {
 });
 const craftingTable = document.querySelector(".crafting-menu");
 const ToggleCrafting = () => {
-	craftingTable.classList.toggle("display-none");
+	craftingTable.classList.toggle("scale-zero");
 };
 const updateCounter = (blockType) => {
 	const parentButton = document.querySelector(`.inventory-container .${blockType}`);
@@ -284,14 +286,10 @@ const upgradeTier = () => {
 	const amount = inventory.filter((block) => block === tier.material);
 
 	if (amount.length >= tier.amount) {
-		let count = 0;
-		inventory.forEach((item) => {
-			if (item === tier.material && count < tier.amount) {
-				const index = inventory.indexOf(item);
-				inventory.splice(index);
-				count++;
-			}
-		});
+		for (let i = 0; i < tier.amount; i++) amount.pop();
+		inventory = inventory.filter((block) => block !== tier.material);
+		amount.forEach((item) => inventory.push(item));
+
 		updateCounter(tier.material);
 		updateToolBar();
 		toolLevel++;
@@ -304,7 +302,8 @@ const upgradeTier = () => {
 				imgs[i].src = tier.imgs[i + 1];
 			}
 		} else {
-			craftingTable.innerHTML = "<p>Congratulations You have reached max upgrades!</p>";
+			craftingTable.querySelector(".upgrade-container").classList.add("display-none");
+			craftingTable.querySelector(".max-upgrade").classList.remove("display-none");
 		}
 	}
 };
