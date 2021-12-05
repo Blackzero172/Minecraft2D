@@ -84,6 +84,7 @@
 	margin-left: 75px;
 	grid-column: span 2;
 	background: url("/assets/img/craftingTableBlock.png") no-repeat center center/cover;
+	position: relative;
 }
 .toolbar {
 	display: flex;
@@ -99,7 +100,7 @@
 }
 .toolbar button img {
 	width: 100%;
-	opacity: 0.1;
+	opacity: 0.25;
 }
 .toolbar .hand img {
 	opacity: 1;
@@ -127,6 +128,52 @@ button:active::before,
 .world-container tr td {
 	width: 43px;
 	height: 43px;
+}
+.crafting-container {
+	position: relative;
+}
+.crafting-menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	width: 20vw;
+	height: 20vh;
+	bottom: 105px;
+	right: -140px;
+	background: green;
+	transform: scale(0);
+	transition: all 1.1s ease-in-out;
+	text-align: center;
+}
+.cost-container {
+	display: flex;
+	align-items: center;
+}
+.cost-container p {
+	margin: 0.25rem;
+}
+.cost-container img {
+	width: 40px;
+}
+.img-container img {
+	width: 50px;
+	margin: 0 1rem;
+	border: 2px dashed gray;
+}
+.button-container .btn {
+	width: 100px;
+	display: inline-block;
+	border: 2px solid gray;
+	padding: 1rem 0;
+	background: #555;
+	text-align: center;
+	user-select: none;
+	cursor: pointer;
+}
+.button-container .btn:active {
+	background: #333;
 }
 .sky {
 	background: cornflowerblue;
@@ -157,4 +204,7 @@ button:active::before,
 }
 .cloud {
 	background: white;
+}
+.display-none {
+	transform: scale(1);
 }

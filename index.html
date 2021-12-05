@@ -10,14 +10,14 @@
 		<title>2D Minecraft</title>
 	</head>
 	<body ondragstart="return false">
-		<div class="landing-page" style="display: none">
+		<div class="landing-page">
 			<img src="/assets/img/Minecraft-Logo.png" alt="Minecraft Logo" class="logo" />
 			<h4>
 				This is a replica of the popular game Minecraft but in 2D,select the appropriate tool to mine the
 				clicked block Tools:
-				<p><img src="/assets/img/pickaxeTexture.png" alt="" />Pickaxe : Cobblestone</p>
-				<p><img src="/assets/img/shovelTexture.png" alt="" />Shovel : Dirt + Grass</p>
-				<p><img src="/assets/img/axeTexture.png" alt="" />Axe : Leaves + Wood</p>
+				<p><img src="/assets/img/ironPickaxeTexture.png" alt="" />Pickaxe : Cobblestone</p>
+				<p><img src="/assets/img/ironShovelTexture.png" alt="" />Shovel : Dirt + Grass</p>
+				<p><img src="/assets/img/ironAxeTexture.png" alt="" />Axe : Leaves + Wood</p>
 			</h4>
 			<button type="button" class="start-btn">Start</button>
 		</div>
@@ -31,9 +31,26 @@
 				<button type="button" class="iron tool" data-tool="inventory"><h2 class="counter">0</h2></button>
 				<button type="button" class="gold tool" data-tool="inventory"><h2 class="counter">0</h2></button>
 				<button type="button" class="diamond tool" data-tool="inventory"><h2 class="counter">0</h2></button>
-				<button type="button" class="crafting">
-					<div class="crafting-menu"></div>
-				</button>
+				<div class="crafting-container">
+					<button type="button" class="crafting"></button>
+					<div class="crafting-menu">
+						<div class="cost-container">
+							You need
+							<p>x3</p>
+							<img src="/assets/img/logTexture.png" alt="Upgrade Material" />
+						</div>
+						<p>Are you sure you want to upgrade your gear?</p>
+						<div class="img-container">
+							<img src="/assets/img/woodenPickaxeTexture.png" alt="Shovel Image" />
+							<img src="/assets/img/woodenAxeTexture.png" alt="Shovel Image" />
+							<img src="/assets/img/woodenShovelTexture.png" alt="Shovel Image" />
+						</div>
+						<div class="button-container">
+							<div class="btn confirm">Yes I'm sure</div>
+							<div class="btn cancel">No I'm not</div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<table class="world-container"></table>
 			<div class="toolbar">
