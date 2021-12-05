@@ -4,13 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="This is a replica of the popular game Minecraft but in 2D " />
+		<meta name="description" content="This is a replica of the popular game Minecraft but in 2D" />
 		<meta name="keywords" content="minecraft,game,2d,fun,replica,free,bootcamp" />
-		<link rel="stylesheet" href="/assets/css/style.css" />
+		<link rel="stylesheet" href="/css/style.css" />
 		<title>2D Minecraft</title>
 	</head>
 	<body ondragstart="return false">
-		<div class="landing-page">
+		<div class="landing-page" style="display: none">
 			<img src="/assets/img/Minecraft-Logo.png" alt="Minecraft Logo" class="logo" />
 			<h4>
 				This is a replica of the popular game Minecraft but in 2D,select the appropriate tool to mine the
@@ -22,6 +22,16 @@
 			<button type="button" class="start-btn">Start</button>
 		</div>
 		<div class="flex-container">
+			<div class="inventory-container">
+				<button type="button" class="dirt"></button>
+				<button type="button" class="grass"></button>
+				<button type="button" class="log"></button>
+				<button type="button" class="leaves"></button>
+				<button type="button" class="cobble"></button>
+				<button type="button" class="iron"></button>
+				<button type="button" class="gold"></button>
+				<button type="button" class="diamond"></button>
+			</div>
 			<table class="world-container"></table>
 			<div class="toolbar">
 				<button type="button" data-tool="pickaxe" class="tool">
@@ -38,6 +48,6 @@
 			</div>
 		</div>
 
-		<script src="/assets/js/index.js"></script>
+		<script src="/js/index.js"></script>
 	</body>
 </html>

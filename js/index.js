@@ -11,6 +11,7 @@ const blocks = {
 };
 let inventory = [];
 let selectedTool = "";
+const inventoryButtons = document.querySelectorAll(".inventory-container button");
 const mineBlock = (e) => {
 	const tile = e.target;
 	let requiredTool = "";
@@ -29,11 +30,10 @@ const mineBlock = (e) => {
 			break;
 	}
 	if (selectedTool === requiredTool) {
-		const inventoryBtn = document.querySelector(".inventory");
-		typeof inventoryBtn.classList[2] === "undefined"
-			? inventoryBtn.classList.add(tile.className)
-			: inventoryBtn.classList.replace(inventoryBtn.classList[2], tile.className);
-
+		inventoryButtons.forEach((button) => {
+			if (tile.className === button.className) {
+			}
+		});
 		inventory.push(tile.className);
 		tile.className = blocks.sky;
 		tile.addEventListener("click", placeBlock);
@@ -42,8 +42,6 @@ const mineBlock = (e) => {
 const populateWorld = () => {
 	worldContainer.innerHTML = "";
 	landingPage.style.display = "none";
-	const inventoryBtn = document.querySelector(".inventory");
-	inventoryBtn.className = "inventory tool";
 	inventory = [];
 	for (let i = 1; i <= 21; i++) {
 		let tileRow = document.createElement("tr");
