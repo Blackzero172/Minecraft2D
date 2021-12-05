@@ -23,27 +23,32 @@
 		</div>
 		<div class="flex-container">
 			<div class="inventory-container">
-				<button type="button" class="dirt"></button>
-				<button type="button" class="grass"></button>
-				<button type="button" class="log"></button>
-				<button type="button" class="leaves"></button>
-				<button type="button" class="cobble"></button>
-				<button type="button" class="iron"></button>
-				<button type="button" class="gold"></button>
-				<button type="button" class="diamond"></button>
+				<button type="button" class="dirt tool" data-tool="inventory"><h2 class="counter">0</h2></button>
+				<button type="button" class="grass tool" data-tool="inventory"><h2 class="counter">0</h2></button>
+				<button type="button" class="log tool" data-tool="inventory"><h2 class="counter">0</h2></button>
+				<button type="button" class="leaves tool" data-tool="inventory"><h2 class="counter">0</h2></button>
+				<button type="button" class="cobble tool" data-tool="inventory"><h2 class="counter">0</h2></button>
+				<button type="button" class="iron tool" data-tool="inventory"><h2 class="counter">0</h2></button>
+				<button type="button" class="gold tool" data-tool="inventory"><h2 class="counter">0</h2></button>
+				<button type="button" class="diamond tool" data-tool="inventory"><h2 class="counter">0</h2></button>
+				<button type="button" class="crafting">
+					<div class="crafting-menu"></div>
+				</button>
 			</div>
 			<table class="world-container"></table>
 			<div class="toolbar">
 				<button type="button" data-tool="pickaxe" class="tool">
-					<img src="/assets/img/pickaxeTexture.png" alt="Pickaxe Image" />
+					<img src="/assets/img/woodenPickaxeTexture.png" alt="Pickaxe Image" />
 				</button>
 				<button type="button" data-tool="axe" class="tool">
-					<img src="/assets/img/axeTexture.png" alt="Axe Image" />
+					<img src="/assets/img/woodenAxeTexture.png" alt="Axe Image" />
 				</button>
 				<button type="button" data-tool="shovel" class="tool">
-					<img src="/assets/img/shovelTexture.png" alt="Shovel Image" />
+					<img src="/assets/img/woodenShovelTexture.png" alt="Shovel Image" />
 				</button>
-				<button type="button" class="inventory tool" data-tool="inventory"></button>
+				<button type="button" class="hand tool" data-tool="hand">
+					<img src="/assets/img/handTexture.png" alt="Shovel Image" />
+				</button>
 				<button type="button" class="reset-btn">Reset</button>
 			</div>
 		</div>

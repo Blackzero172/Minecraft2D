@@ -5,33 +5,55 @@ const blocks = {
 	sky: "sky",
 	grass: "grass",
 	cobble: "cobble",
+	iron: "iron",
+	gold: "gold",
+	diamond: "diamond",
 	log: "log",
 	leaves: "leaves",
 	cloud: "cloud",
 };
 let inventory = [];
 let selectedTool = "";
-const inventoryButtons = document.querySelectorAll(".inventory-container button");
+let toolLevel = 0;
+const inventoryButtons = document.querySelectorAll(".inventory-container .tool");
 const mineBlock = (e) => {
 	const tile = e.target;
-	let requiredTool = "";
-
+	let requiredTool = [];
+	let requiredLevel = 0;
 	switch (tile.className) {
 		case blocks.dirt:
 		case blocks.grass:
-			requiredTool = "shovel";
+			requiredTool.push("shovel", "hand");
+			break;
+		case blocks.log:
+			requiredTool.push("axe", "hand");
 			break;
 		case blocks.leaves:
-		case blocks.log:
-			requiredTool = "axe";
+			requiredTool.push("axe");
+			requiredLevel = 1;
 			break;
 		case blocks.cobble:
-			requiredTool = "pickaxe";
+			requiredTool.push("pickaxe");
+			requiredLevel = 1;
+			break;
+		case blocks.iron:
+			requiredTool.push("pickaxe");
+			requiredLevel = 2;
+			break;
+		case blocks.gold:
+			requiredTool.push("pickaxe");
+			requiredLevel = 3;
+			break;
+		case blocks.diamond:
+			requiredTool.push("pickaxe");
+			requiredLevel = 4;
 			break;
 	}
-	if (selectedTool === requiredTool) {
+	if (requiredTool.includes(selectedTool) && toolLevel >= requiredLevel) {
 		inventoryButtons.forEach((button) => {
-			if (tile.className === button.className) {
+			if (button.classList.contains(tile.className)) {
+				let counter = button.querySelector("h2");
+				counter.innerText = +counter.innerText + 1;
 			}
 		});
 		inventory.push(tile.className);
@@ -43,6 +65,10 @@ const populateWorld = () => {
 	worldContainer.innerHTML = "";
 	landingPage.style.display = "none";
 	inventory = [];
+	inventoryButtons.forEach((button) => {
+		let counter = button.querySelector("h2");
+		counter.innerText = 0;
+	});
 	for (let i = 1; i <= 21; i++) {
 		let tileRow = document.createElement("tr");
 		for (let j = 1; j <= 21; j++) {
@@ -63,10 +89,6 @@ const populateWorld = () => {
 		}
 		worldContainer.append(tileRow);
 	}
-	// Cobble Creation
-	changeTile("x:21 y:14", blocks.cobble);
-	changeTile("x:15 y:14", blocks.cobble);
-	changeTile("x:14 y:14", blocks.cobble);
 	// Log Creation
 	createTree();
 	// Cloud Creation
@@ -104,47 +126,38 @@ const createCloud = () => {
 };
 const changeTile = (tilePosition, tileType) => {
 	const tile = document.getElementById(tilePosition);
-	let requiredTool = "";
 	tile.classList.replace("sky", tileType);
-
-	switch (tile.className) {
-		case blocks.dirt:
-		case blocks.grass:
-			requiredTool = "shovel";
-			break;
-		case blocks.leaves:
-		case blocks.log:
-			requiredTool = "axe";
-			break;
-		case blocks.cobble:
-			requiredTool = "pickaxe";
-			break;
-	}
 	tile.addEventListener("click", mineBlock);
 };
 const placeBlock = (e) => {
-	const currBlock = inventory[inventory.length - 1];
-	const prevBlock = inventory[inventory.length - 2];
-	const inventoryBtn = document.querySelector(".inventory");
-	console.log(currBlock && selectedTool === "inventory" && e.target.className === "sky");
-	if (currBlock && selectedTool === "inventory" && e.target.className === "sky") {
-		e.target.className = currBlock;
+	const selectedButton = document.getElementById("selected");
+	const selectedBlock = selectedButton.classList[0];
+	if (
+		selectedBlock &&
+		selectedTool === "inventory" &&
+		e.target.className === "sky" &&
+		inventory.includes(selectedBlock)
+	) {
+		e.target.className = selectedBlock;
 		e.target.addEventListener("click", mineBlock);
-		inventoryBtn.classList.replace(currBlock, prevBlock);
+		let counter = selectedButton.querySelector("h2");
+		counter.innerText = +counter.innerText - 1;
 		inventory.pop();
 	}
-	if (inventory.length === 0) {
-		inventoryBtn.classList.remove(currBlock);
-	}
 };
-const toolButtons = document.querySelectorAll(".toolbar .tool");
+const toolButtons = document.querySelectorAll(".tool");
 toolButtons.forEach((tool) => {
 	tool.addEventListener("click", (e) => {
-		toolButtons.forEach((tool) => {
-			tool.id = "";
-		});
-		tool.id = "selected";
-		selectedTool = tool.getAttribute("data-tool");
+		if (toolLevel >= 1 || tool.classList.contains("hand") || tool.getAttribute("data-tool") === "inventory") {
+			toolButtons.forEach((tool) => {
+				tool.id = "";
+			});
+
+			tool.id = "selected";
+			selectedTool = tool.getAttribute("data-tool");
+		} else {
+			console.log("you need to unlock this tool");
+		}
 	});
 });
 
